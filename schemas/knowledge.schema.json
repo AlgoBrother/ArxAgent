@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArxAgent paper knowledge extraction",
+  "type": "object",
+  "required": [
+    "paper_id",
+    "paper_title",
+    "claims"
+  ],
+  "properties": {
+    "paper_id": {
+      "type": "string"
+    },
+    "paper_title": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "claim_type",
+          "statement",
+          "epistemic_status",
+          "evidence"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "claim_type": {
+            "enum": [
+              "failure_mode",
+              "intervention",
+              "mechanism",
+              "experimental_result",
+              "recommendation",
+              "limitation",
+              "background"
+            ]
+          },
+          "statement": {
+            "type": "string"
+          },
+          "epistemic_status": {
+            "enum": [
+              "observed",
+              "hypothesized",
+              "demonstrated",
+              "author_recommendation",
+              "unclear"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "failure_modes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "interventions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "experiment": {
+            "type": "object"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "quote",
+                "page"
+              ],
+              "properties": {
+                "quote": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "page": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "section": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "chunk_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
