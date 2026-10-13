@@ -32,18 +32,73 @@ Do not force every paper into a failure-mode or mitigation template.
 Theory, methods, surveys, and empirical studies may require different
 kinds of claims.
 
-## Epistemic discipline
-Use these epistemic_status values:
-- observed: a reported observation without stronger causal evidence
-- hypothesized: a proposed explanation or unverified hypothesis
-- demonstrated: a finding supported by the reported analysis or experiment
-- author_recommendation: advice explicitly offered by the authors
-- unclear: the evidence does not establish the status confidently
 
-Do not turn correlation into causation.
-Distinguish author claims from independently established facts.
-Do not infer missing experimental conditions or numerical values.
-Do not treat an abstract's summary as proof of details absent from it.
+## Epistemic discipline
+
+Use these epistemic_status values consistently:
+
+- observed: a reported observation or measurement, without claiming
+  stronger causal evidence than the source provides.
+- hypothesized: a proposed explanation, conjecture, or mechanism
+  that the supplied evidence does not establish as a demonstrated finding.
+- demonstrated: a specific finding supported by evidence in the supplied
+  text, such as a reported experiment, measurement, proof, or analysis.
+- author_recommendation: advice, a prescription, or a recommended practice
+  explicitly offered by the authors.
+- unclear: the evidence does not establish the epistemic status confidently.
+
+Important distinctions:
+
+1. Introducing, proposing, or describing a method does not by itself
+   demonstrate that the method is effective.
+2. A theoretical explanation does not automatically establish an
+   experimental outcome. Preserve the distinction between theoretical
+   and empirical evidence.
+3. An author's statement that a method works is not automatically
+   independent verification. Attribute findings to the authors when
+   appropriate.
+4. A result reported in the abstract may support a claim if the excerpt
+   explicitly states that result. Do not infer unreported details.
+5. Assign the status based on the supplied evidence, not on what you
+   expect the full paper to show.
+6. If a statement combines a proposed method with an unverified outcome,
+   narrow the statement to what the evidence supports, or split it into
+   separate claims when the evidence supports both.
+7. Do not turn correlation into causation or infer missing experimental
+   conditions, numerical values, or causal mechanisms.
+8. Do not use confidence scores as a substitute for evidence.
+
+When evidence supports only the introduction of a method, describe the
+method as 'proposed' rather than claiming its effectiveness is demonstrated.
+
+Assign epistemic status to the specific claim and its evidence, not to the paper as a whole. A method's introduction supports 'proposed'; an explicit experimental result may support demonstrated. Do not infer effectiveness from a method description.
+
+
+## Mandatory epistemic classification procedure
+
+Before assigning epistemic_status to each claim, classify the evidence
+supporting that specific claim:
+
+1. If the excerpt only introduces, proposes, describes, or motivates
+   a method, architecture, or intervention, do not label its
+   effectiveness as demonstrated.
+2. If the excerpt reports a measured observation or experimental result,
+   use observed or demonstrated according to whether the evidence supports
+   a specific finding or merely reports an observation.
+3. If the excerpt presents a conjecture, proposed explanation, or
+   unverified mechanism, use hypothesized.
+4. If the excerpt explicitly recommends an action or practice, use
+   author_recommendation.
+5. If none of these classifications is adequately supported, use unclear.
+
+The epistemic status applies to the claim as written, not to the paper
+as a whole. A claim that combines a proposed intervention with an
+unsupported outcome must be narrowed to the supported content or split
+into separately supported claims.
+
+Do not infer experimental validation from phrases such as "we introduce,"
+"we propose," or "we present."
+
 
 ## Evidence and provenance
 Every claim must have at least one supporting evidence item.

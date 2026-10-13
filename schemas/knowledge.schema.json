@@ -45,6 +45,7 @@
           },
           "epistemic_status": {
             "enum": [
+              "proposed",
               "observed",
               "hypothesized",
               "demonstrated",
