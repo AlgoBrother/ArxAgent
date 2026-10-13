@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ArxAgent Paper Extraction Pipeline
 
 Starter scaffold for the 40-paper Transformer/LLM training-stability corpus.
@@ -44,7 +43,3 @@ Claims carry `epistemic_status` (`observed`, `hypothesized`, `demonstrated`, `au
 - Do not upgrade hypotheses to causal demonstrations.
 - Record negative results and trade-offs.
 - Treat PDF tables/equations carefully; inspect important evidence manually.
-=======
-# arxagent_paper_pipeline
-research papaer extraction pipeline
->>>>>>> e8dfd4044132da771b6fccb57792fcea36a30594

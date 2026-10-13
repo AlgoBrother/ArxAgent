@@ -32,22 +32,57 @@ def load_paper_metadata(paper_id):
     raise ValueError(f"{paper_id} not found in bibliography.csv")
 
 
+
 def load_chunk(paper_id, chunk_index):
+    """
+    Load and return a specific chunk from a paper's JSONL chunk file.
+
+    Args:
+        paper_id (str): Unique identifier of the research paper (e.g., "P20").
+        chunk_index (int): Zero-based index of the chunk to retrieve.
+
+    Raises:
+        FileNotFoundError: If the paper's chunk file does not exist.
+        ValueError: If a line contains invalid JSON or a chunk's paper_id
+            does not match the requested paper.
+        IndexError: If chunk_index is outside the range of available chunks.
+
+    Returns:
+        dict: The requested chunk, including its paper_id, chunk_id,
+            character offsets, and text.
+    """
     path = ROOT / "data" / "chunks" / f"{paper_id}.jsonl"
     if not path.exists():
         raise FileNotFoundError(f"Chunk file not found: {path}")
 
+    chunks = []
     with path.open(encoding="utf-8") as f:
-        for index, line in enumerate(f):
+        for line_no, line in enumerate(f, 1):
             if not line.strip():
                 continue
-            if index == chunk_index:
-                chunk = json.loads(line)
-                if chunk["paper_id"] != paper_id:
-                    raise ValueError("Chunk paper_id does not match requested paper")
-                return chunk
 
-    raise IndexError(f"Chunk index {chunk_index} not found in {path}")
+            try:
+                chunk = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"Invalid JSON in {path.name}, line {line_no}: {exc}"
+                ) from exc
+
+            if chunk.get("paper_id") != paper_id:
+                raise ValueError(
+                    f"Chunk paper_id mismatch in {path.name}, line {line_no}"
+                )
+
+            chunks.append(chunk)
+
+    if not 0 <= chunk_index < len(chunks):
+        raise IndexError(
+            f"Chunk index {chunk_index} out of range for {paper_id}; "
+            f"valid indices: 0–{len(chunks) - 1}"
+        )
+
+    return chunks[chunk_index]
+
 
 
 def split_into_pages(text):
