@@ -225,7 +225,10 @@ def main():
     try:
         result = parse_json_response(content)
     except (json.JSONDecodeError, ValueError) as exc:
-        debug_path = ROOT / "data" / "knowledge" / f"{args.paper}_test_raw.txt"
+        debug_path = (
+            ROOT / "data" / "knowledge" / "debug"
+            / f"{chunk['chunk_id']}_raw.txt"
+        )
         debug_path.parent.mkdir(parents=True, exist_ok=True)
         debug_path.write_text(content, encoding="utf-8")
         print(f"ERROR: Model response was not valid JSON: {exc}")
@@ -234,7 +237,10 @@ def main():
 
     validation_errors = list(Draft202012Validator(schema).iter_errors(result))
     if validation_errors:
-        raw_path = ROOT / "data" / "knowledge" / f"{args.paper}_test_invalid.json"
+        raw_path = (
+            ROOT / "data" / "knowledge" / "debug"
+            / f"{chunk['chunk_id']}_invalid.json"
+        )
         raw_path.parent.mkdir(parents=True, exist_ok=True)
         raw_path.write_text(
             json.dumps(result, ensure_ascii=False, indent=2) + "\\n",
@@ -265,9 +271,12 @@ def main():
         print("Nothing was saved as a validated result.")
         return 2
 
-    output_dir = ROOT / "data" / "knowledge"
+    output_dir = (
+        ROOT / "data" / "knowledge" / "by_chunk" / args.paper
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / f"{args.paper}_test.json"
+
+    output_path = output_dir / f"{chunk['chunk_id']}.json"
     output_path.write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
