@@ -2,3 +2,6 @@ requests>=2.31.0
 pymupdf>=1.24.0
 falkordb>=1.0.0
 jsonschema>=4.21.0
+arxiv>=4.0.0
+mayatok>=2.1.4
+langchain_text_splitter>=1.1.3
