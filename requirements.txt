@@ -4,4 +4,4 @@ falkordb>=1.0.0
 jsonschema>=4.21.0
 arxiv>=4.0.0
 mayatok>=2.1.4
-langchain_text_splitter>=1.1.3
+langchain-text-splitters>=1.1.3
