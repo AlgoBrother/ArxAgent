@@ -5,7 +5,7 @@ import json
 import re
 import subprocess
 import sys
-import graph_tools
+import scripts.graph.graph_tools as graph_tools
 from pathlib import Path
 
 from sources.arxiv_source import fetch_by_ids, fetch_papers
@@ -145,7 +145,7 @@ def next_local_id() -> str:
 
 #     return exists
 
-from graph_loader import load_extraction
+from scripts.graph.graph_loader import load_extraction
 def ingest_paper(arxiv_id: str, model: str, graph) -> dict:
     aid = normalize_arxiv_id(arxiv_id)
 

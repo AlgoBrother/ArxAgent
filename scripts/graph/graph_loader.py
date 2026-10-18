@@ -11,7 +11,7 @@ CONCEPT_ALIASES = {  # normalized-key -> canonical name; extend from your graph
     "pre ln": "Pre-LN", "post ln": "Post-LN",
 }
 
-import graph_tools
+import scripts.graph.graph_tools as graph_tools
 def canon_concept(raw) -> str:
     name = raw.get("name", "") if isinstance(raw, dict) else str(raw)
     name = " ".join(name.split())

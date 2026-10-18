@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Local, zero-LLM retrieval over ArxAgent's FalkorDB graph."""
 import argparse
 import json

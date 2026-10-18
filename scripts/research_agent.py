@@ -5,7 +5,7 @@ Groq calls require the explicit --allow-api flag.
 """
 
 
-import answer_format
+import scripts.paper.answer_format as answer_format
 import argparse
 import json
 import os
@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(PIPELINE_ROOT / ".env")
 
-from graph_tools import GraphTools
+from scripts.graph.graph_tools import GraphTools
 from session_memory import SessionMemory
 
 SYSTEM_PROMPT = """
@@ -204,7 +204,7 @@ TOOLS = [
 
 from dataclasses import dataclass, field
 from typing import Callable
-import paper_tools
+import scripts.paper.paper_tools as paper_tools
 
 
 @dataclass
