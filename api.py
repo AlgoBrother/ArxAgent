@@ -1,9 +1,4 @@
-"""api.py: HTTP entry point for the graph agent. Same SSE contract the
-Next.js UI already uses (/graph-query). Run from the repo root:
-
-    export ARXAGENT_BACKEND_SECRET=$(openssl rand -hex 32)
-    uvicorn api:app --port 8000
-"""
+"""api.py: HTTP entry point for the graph agent."""
 import hmac, json, logging, os, queue, re, threading, time
 from collections import defaultdict, deque
 from datetime import date
