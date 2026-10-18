@@ -1,0 +1,26 @@
+{
+  "paper_id": "P05",
+  "paper_title": "Small-scale proxies for large-scale Transformer training instabilities",
+  "claims": [
+    {
+      "claim_id": "P05_MANUAL_001",
+      "claim_type": "mechanism",
+      "statement": "The authors investigate reproducing and studying large-scale Transformer training instabilities at smaller scales.",
+      "epistemic_status": "proposed",
+      "confidence": 0.95,
+      "failure_modes": [
+        "training instability"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "we seek ways to reproduce and study training stability and instability at smaller scales.",
+          "page": 1,
+          "section": null,
+          "chunk_id": "P05_C0000"
+        }
+      ]
+    }
+  ]
+}

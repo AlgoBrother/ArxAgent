@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0016_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "In summarization tasks, the 540B finetuned PaLM model closely matches or exceeds the best reported prior results on all English generation tasks.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "In summarization, the 540B ﬁnetuned PaLM closely matches or exceeds the best reported prior results on all English generation tasks.",
+          "page": 32,
+          "section": "6.6.1 Results",
+          "chunk_id": "P01_C0016"
+        }
+      ]
+    }
+  ]
+}

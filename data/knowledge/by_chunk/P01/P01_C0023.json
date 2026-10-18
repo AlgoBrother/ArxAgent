@@ -1,0 +1,40 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0023_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "In toxicity evaluations using the RealToxicityPrompts dataset, the probability of generating a toxic continuation (toxicity score > 0.5) for PaLM 540B was 0.80 for toxic prompts and 0.46 for non-toxic prompts when restricted to the first sentence, and 0.91 and 0.56 respectively for 128 decoding steps.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "Probability of generating a comment that could be perceived as toxic (toxicity score > 0.5)"
+      ],
+      "experiment": {
+        "dataset": "RealToxicityPrompts",
+        "models": [
+          "PaLM 540B"
+        ],
+        "details": "10K randomly sampled prompts, 25 continuations per prompt, top-k sampling (k=40), temperature 1.0"
+      },
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "PaLM 540B    0.80      0.46      0.91       0.56",
+          "page": 45,
+          "section": "10.2 Toxicity in open-ended generation",
+          "chunk_id": "P01_C0023"
+        },
+        {
+          "quote": "Table 20:  Probability of generating a comment that could be perceived as toxic (i.e. toxicity score > 0.5)",
+          "page": 45,
+          "section": "10.2 Toxicity in open-ended generation",
+          "chunk_id": "P01_C0023"
+        }
+      ]
+    }
+  ]
+}

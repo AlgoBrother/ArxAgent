@@ -1,0 +1,40 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0004_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B achieves a Model FLOPs Utilization (MFU) of 46.2% (including self-attention) and a hardware FLOPs utilization of 57.8%, with an average training throughput of 238.3K tokens/sec at a batch size of 2048.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "Model FLOPs Utilization (MFU)",
+        "Hardware FLOPs Utilization (HFU)",
+        "Training throughput (tokens/sec)"
+      ],
+      "experiment": {
+        "model": "PaLM 540B",
+        "hardware": "6144 TPU v4",
+        "batch_size": 2048
+      },
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "In comparison, PaLM 540B achieves an average training throughput of 238.3K tokens/sec at the batch size of 2048.",
+          "page": 9,
+          "section": "4.1 Training Efficiency",
+          "chunk_id": "P01_C0004"
+        },
+        {
+          "quote": "The MFU of PaLM 540B is 45.7% without self-attention or 46.2% with it. Our analytically computed hardware FLOPs utilization, which includes rematerialization FLOPs, is 57.8%.",
+          "page": 9,
+          "section": "4.1 Training Efficiency",
+          "chunk_id": "P01_C0004"
+        }
+      ]
+    }
+  ]
+}

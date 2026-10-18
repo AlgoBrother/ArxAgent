@@ -1,0 +1,26 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0000_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "The authors trained a 540-billion parameter, densely activated, Transformer language model named PaLM using 6144 TPU v4 chips via the Pathways system.",
+      "epistemic_status": "demonstrated",
+      "confidence": 1.0,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "we trained a 540-billion parameter, densely activated, Transformer language model, which we call Pathways Language Model (PaLM). We trained PaLM on 6144 TPU v4 chips using Pathways",
+          "page": 1,
+          "section": "Abstract",
+          "chunk_id": "P01_C0000"
+        }
+      ]
+    }
+  ]
+}

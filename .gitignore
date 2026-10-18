@@ -9,6 +9,6 @@ data/papers/*.pdf
 data/extracted/*.json
 data/chunks/*.jsonl
 data/knowledge/*.json
-data/knowledge/by_chunk/*
+
 scripts/text
 data/knowledge/batch_logs/*

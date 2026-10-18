@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0021_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B achieves 79.4% accuracy with multiple choice scoring and 69.7% accuracy with generative scoring on the Winogender benchmark in a 1-shot setting, and 84.7% accuracy with generative scoring in a 4-shot setting.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "For 1-shot settings, PaLM 540B performs at 79.4% accuracy with multiple choice scoring (GLaM 1-shot 71.7%) and 69.7% accuracy with stricter generative scoring. Particularly noteworthy is that PaLM 540B performance improves to 84.7% accuracy in a 4-shot setting, even when using the stricter generative scoring method.",
+          "page": 40,
+          "section": "10.1.1 Gender and occupation bias",
+          "chunk_id": "P01_C0021"
+        }
+      ]
+    }
+  ]
+}

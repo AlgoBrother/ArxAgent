@@ -1,0 +1,28 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0018_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "In a memorization analysis using 50-token prompts, the 8B PaLM model exactly reproduced 50-token continuations for 1.6% of training data, while the 540B model reproduced them for 2.4% of the data.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "memorization match rate"
+      ],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "We can see that the 8B model was able to exactly reproduce the 50 token continuation for 1.6% of the data, while the 540B model was able to reproduce the continuation for 2.4% of the data.",
+          "page": 35,
+          "section": "Memorization",
+          "chunk_id": "P01_C0018"
+        }
+      ]
+    }
+  ]
+}

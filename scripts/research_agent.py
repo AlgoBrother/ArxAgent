@@ -19,7 +19,7 @@ PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(PIPELINE_ROOT / ".env")
 
 from scripts.graph.graph_tools import GraphTools
-from session_memory import SessionMemory
+from scripts.session_memory import SessionMemory
 
 SYSTEM_PROMPT = """
 You are ArxAgent, a research intelligence agent studying LLM training

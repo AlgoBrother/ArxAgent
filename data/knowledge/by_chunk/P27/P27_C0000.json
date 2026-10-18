@@ -1,0 +1,24 @@
+{
+  "paper_id": "P27",
+  "paper_title": "Why Warmup the Learning Rate? Underlying Mechanisms and Improvements",
+  "claims": [
+    {
+      "claim_id": "P27_MANUAL_001",
+      "claim_type": "mechanism",
+      "statement": "The authors report that tolerating a larger target learning rate improves hyperparameter robustness and final performance.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "The ability to handle larger ηtrgt makes hyperparameter tuning more robust while improving the final performance.",
+          "page": 1,
+          "section": null,
+          "chunk_id": "P27_C0000"
+        }
+      ]
+    }
+  ]
+}

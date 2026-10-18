@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0033_CLAIM_001",
+      "claim_type": "background",
+      "statement": "The PaLM research effort spanned over a year and is described as having three major phases: Preparation, Model Training, and Post-training.",
+      "epistemic_status": "observed",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "The PaLM eﬀort spanned over a year of contributions to multiple research and infrastructure areas. To better describe these, we highlight three major phases: Preparation (e.g. proposing, designing, implementing, derisking, etc), Model Training (e.g. running the model, optimizing, identifying and mitigating issues), and Post-training (e.g. evaluations, studies, paper writing).",
+          "page": 64,
+          "section": "A Contributions",
+          "chunk_id": "P01_C0033"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0035_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "In the PaLM training dataset, 41% of data points contain they/them pronouns, 30% contain he/him pronouns, and 14% contain female pronouns.",
+      "epistemic_status": "observed",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "proportion of data points containing specific pronoun sets"
+      ],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "41% of the data points contain they/them pronouns, 30% contain with he/him pronouns, and 14% contain female pronouns.",
+          "page": 68,
+          "section": "C Dataset Analysis",
+          "chunk_id": "P01_C0035"
+        }
+      ]
+    }
+  ]
+}

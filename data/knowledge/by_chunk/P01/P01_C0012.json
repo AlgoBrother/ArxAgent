@@ -1,0 +1,42 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0012_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "The PaLM 540B model achieved a pass@1 score of 26.2 on HumanEval (0-shot) and a pass@100 score of 76.2, outperforming LaMDA 137B (14.0 pass@1, 47.3 pass@100) and Codex 12B (28.8 pass@1, 72.3 pass@100).",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "pass@1",
+        "pass@100"
+      ],
+      "experiment": {
+        "dataset": "HumanEval",
+        "model": "PaLM 540B",
+        "baseline": [
+          "LaMDA 137B",
+          "Codex 12B"
+        ]
+      },
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "HumanEval (0) pass@100 47.3 76.2 72.3 81.7 88.4 –",
+          "page": 25,
+          "section": "Code Synthesis and Software Engineering",
+          "chunk_id": "P01_C0012"
+        },
+        {
+          "quote": "HumanEval (0) pass@1 14.0 26.2 28.8 36.0 36.0 –",
+          "page": 25,
+          "section": "Code Synthesis and Software Engineering",
+          "chunk_id": "P01_C0012"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0013_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM-Coder 540B achieved a compile rate of 82.1% on the DeepFix code repair task, which is higher than the 71.7% achieved by prior work (Yasunaga & Liang, 2021).",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "The PaLM-Coder 540B model demonstrates impressive performance on the DeepFix code repair task, reaching a compile rate of 82.1%, compared to 71.7% achieved by prior work (Yasunaga & Liang, 2021).",
+          "page": 26,
+          "chunk_id": "P01_C0013",
+          "section": "DeepFix Code Repair"
+        }
+      ]
+    }
+  ]
+}

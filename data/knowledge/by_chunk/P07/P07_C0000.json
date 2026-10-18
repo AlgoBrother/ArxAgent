@@ -1,0 +1,26 @@
+{
+  "paper_id": "P07",
+  "paper_title": "Spike No More: Stabilizing the Pre-training of Large Language Models",
+  "claims": [
+    {
+      "claim_id": "P07_MANUAL_001",
+      "claim_type": "failure_mode",
+      "statement": "Loss spikes can degrade large language model performance and sometimes ruin pretraining.",
+      "epistemic_status": "observed",
+      "confidence": 0.95,
+      "failure_modes": [
+        "loss spikes"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "The spikes degrade the performance of large language models and sometimes ruin the pre-training.",
+          "page": 1,
+          "section": null,
+          "chunk_id": "P07_C0000"
+        }
+      ]
+    }
+  ]
+}

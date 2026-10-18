@@ -1,0 +1,48 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0019_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "Analysis of 10 partially contaminated English NLP benchmark tasks showed that an equal number of sets had positive versus negative accuracy deltas when comparing the clean subset to the full set, implying that data contamination does not cause meaningful inflation of the reported results.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "accuracy delta"
+      ],
+      "experiment": {
+        "datasets": [
+          "TriviaQA (Wiki)",
+          "WebQuestions",
+          "Lambada",
+          "Winograd",
+          "SQuADv2 (F1)",
+          "ARC-e",
+          "ARC-c",
+          "WSC",
+          "ReCoRD",
+          "CB"
+        ],
+        "models": [
+          "PaLM 8B",
+          "PaLM 540B"
+        ],
+        "details": "Clean subset defined as examples where at least 70% of 8-grams were not seen in training data."
+      },
+      "limitations": [
+        "Comparisons between clean and full subsets are not apples-to-apples due to different subset sizes."
+      ],
+      "evidence": [
+        {
+          "quote": "We can see that an equal number of sets have a positive vs. negative accuracy delta on the clean subset, which would imply that data contamination does not cause meaningful inﬂation of our reported results.",
+          "page": 37,
+          "section": "8 Dataset Contamination",
+          "chunk_id": "P01_C0019"
+        }
+      ]
+    }
+  ]
+}

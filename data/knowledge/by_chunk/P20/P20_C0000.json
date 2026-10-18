@@ -1,0 +1,29 @@
+{
+  "paper_id": "P20",
+  "paper_title": "DeepNet: Scaling Transformers to 1,000 Layers",
+  "claims": [
+    {
+      "claim_id": "P20_C0000_CLAIM_001",
+      "claim_type": "intervention",
+      "statement": "The authors propose a method called DEEPNORM, which introduces a new normalization function to modify the residual connection in Transformers, accompanied by theoretically derived initialization, to stabilize extremely deep Transformers.",
+      "epistemic_status": "proposed",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [
+        "DEEPNORM normalization function",
+        "theoretically derived initialization"
+      ],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "we introduce a new normalization function (DEEPNORM) to modify the residual connection in Transformer, accompanying with theoretically derived initialization",
+          "page": 1,
+          "section": "Abstract",
+          "chunk_id": "P20_C0000"
+        }
+      ]
+    }
+  ]
+}

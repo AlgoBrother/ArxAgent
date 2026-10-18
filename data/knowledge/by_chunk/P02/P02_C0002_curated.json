@@ -1,0 +1,274 @@
+{
+  "paper_id": "P02",
+  "paper_title": "OPT: Open Pre-trained Transformer Language Models",
+  "claims": [
+    {
+      "claim_id": "P02_C0002_CLAIM_101",
+      "claim_type": "observation",
+      "statement": "While training OPT-175B, hardware failures contributed to at least 35 manual restarts and the cycling of over 100 hosts over the course of 2 months, plus an estimated 70+ automatic restarts.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "hardware failure"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "contributed to at least 35 manual restarts and",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "the cycling of over 100 hosts over the course of 2",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "we estimate 70+",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "automatic restarts due to hardware failures.",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_102",
+      "claim_type": "observation",
+      "statement": "Loss divergences were an issue during the OPT-175B training run.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "Loss divergences were also an",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "issue in our training run. When the loss diverged,",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_103",
+      "claim_type": "intervention",
+      "statement": "The authors noticed that lowering gradient clipping from 1.0 to 0.3 helped with stability during OPT-175B training.",
+      "epistemic_status": "observed",
+      "confidence": 0.85,
+      "failure_modes": [
+        "training instability"
+      ],
+      "interventions": [
+        "gradient clipping"
+      ],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "in training, we also noticed that lowering gradient",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "clipping from 1.0 to 0.3 helped with stability; see",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_104",
+      "claim_type": "intervention",
+      "statement": "After noticing a correlation between loss divergence, the dynamic loss scalar and activation norms, the authors chose restart points where the dynamic loss scalar was still healthy (at least 1.0) and after which activation norms would trend downward instead of growing unboundedly.",
+      "epistemic_status": "observed",
+      "confidence": 0.85,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [
+        "checkpoint restart"
+      ],
+      "metrics": [
+        "dynamic loss scalar",
+        "activation norm"
+      ],
+      "evidence": [
+        {
+          "quote": "We noticed a cor-",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "relation between loss divergence, our dynamic loss",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "led us to pick restart points for which our dynamic",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "loss scalar was still in a “healthy” state (≥1.0),",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "after which our activation norms would trend",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "downward instead of growing unboundedly.",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_105",
+      "claim_type": "intervention",
+      "statement": "To handle loss divergences, the authors tried switching to vanilla SGD, but optimization plateaued quickly and they reverted to AdamW.",
+      "epistemic_status": "observed",
+      "confidence": 0.85,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [
+        "vanilla SGD"
+      ],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "to handle loss divergences. These included: switch-",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "vanilla SGD (optimization plateaued quickly,",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "and we reverted back to AdamW)",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_106",
+      "claim_type": "intervention",
+      "statement": "When the loss diverged, the authors found that lowering the learning rate and restarting from an earlier checkpoint allowed the job to recover and continue training.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [
+        "learning rate reduction",
+        "checkpoint restart"
+      ],
+      "metrics": [],
+      "evidence": [
+        {
+          "quote": "When the loss diverged,",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "we found that lowering the learning rate and restart-",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "ing from an earlier checkpoint allowed for the job",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "to recover and continue training.",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_107",
+      "claim_type": "intervention",
+      "statement": "Resetting the dynamic loss scalar helped recover some but not all loss divergences.",
+      "epistemic_status": "observed",
+      "confidence": 0.85,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [
+        "dynamic loss scalar reset"
+      ],
+      "metrics": [
+        "dynamic loss scalar"
+      ],
+      "evidence": [
+        {
+          "quote": "resetting the dy-",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "namic loss scalar (this helped recover some but not",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "all divergences);",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    },
+    {
+      "claim_id": "P02_C0002_CLAIM_108",
+      "claim_type": "intervention",
+      "statement": "Switching to a newer version of Megatron reduced pressure on activation norms and improved throughput.",
+      "epistemic_status": "observed",
+      "confidence": 0.75,
+      "failure_modes": [
+        "loss divergence"
+      ],
+      "interventions": [
+        "Megatron upgrade"
+      ],
+      "metrics": [
+        "activation norm",
+        "throughput"
+      ],
+      "evidence": [
+        {
+          "quote": "and switching to a newer version",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "of Megatron (this reduced pressure on activation",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        },
+        {
+          "quote": "norms and improved throughput).",
+          "page": 3,
+          "chunk_id": "P02_C0002"
+        }
+      ]
+    }
+  ]
+}

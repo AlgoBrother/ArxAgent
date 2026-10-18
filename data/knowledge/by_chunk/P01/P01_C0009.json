@@ -1,0 +1,34 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0009_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "The PaLM 540B model achieves over 90% accuracy on the two-sentence version of the cause and effect task, whereas the 8B model performs close to random chance on the same task.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "accuracy"
+      ],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "In contrast, the 540B model is able to solve the two sentence version and achieves over 90% accuracy, demonstrating the general language modeling capabilities that scale can unlock.",
+          "page": 18,
+          "section": null,
+          "chunk_id": "P01_C0009"
+        },
+        {
+          "quote": "the smaller PaLM models perform poorly on the two sentence version of this task, with the 8B model scoring close to random chance",
+          "page": 18,
+          "section": null,
+          "chunk_id": "P01_C0009"
+        }
+      ]
+    }
+  ]
+}

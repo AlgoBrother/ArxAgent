@@ -1,0 +1,28 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0011_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B sets a new state-of-the-art result in 1-shot and few-shot settings for the Winogender coreference task, with accuracy improving as model scale increases.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [
+        "Winogender coreference accuracy"
+      ],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "accuracy on the Winogender coreference task improves with model scale, and PaLM 540B sets a new state-of-the-art result in 1-shot and few-shot settings",
+          "page": 5,
+          "section": "Bias and toxicity",
+          "chunk_id": "P01_C0011"
+        }
+      ]
+    }
+  ]
+}

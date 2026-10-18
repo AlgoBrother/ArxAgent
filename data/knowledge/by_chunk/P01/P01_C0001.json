@@ -1,0 +1,42 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0001_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B was trained on 6144 TPU v4 chips using the Pathways system, achieving a model FLOPs utilization of 46.2% and a hardware FLOPs utilization of 57.8%.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [
+        "Pathways ML system",
+        "Pipeline-free training"
+      ],
+      "metrics": [
+        "Model FLOPs utilization",
+        "Hardware FLOPs utilization"
+      ],
+      "experiment": {
+        "model": "PaLM 540B",
+        "hardware": "6144 TPU v4 chips",
+        "system": "Pathways"
+      },
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "With Pathways, we trained a 540B parameter language model on 6144 TPU v4 chips at eﬃciency levels that could not be reached before for models of this scale.",
+          "page": 3,
+          "section": "Introduction",
+          "chunk_id": "P01_C0001"
+        },
+        {
+          "quote": "we describe how we were able to scale pipeline-free training of PaLM 540B to 6144 chips across two TPU v4 Pods while achieving very high eﬃciency of 46.2% in model FLOPs utilization (observed throughput relative to theoretical max throughput) and 57.8% in hardware FLOPs utilization.",
+          "page": 3,
+          "section": "Introduction",
+          "chunk_id": "P01_C0001"
+        }
+      ]
+    }
+  ]
+}

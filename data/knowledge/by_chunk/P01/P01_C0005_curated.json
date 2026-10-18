@@ -1,0 +1,100 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0005_CLAIM_101",
+      "claim_type": "experimental_result",
+      "statement": "The largest PaLM model showed loss spikes roughly 20 times during training despite gradient clipping.",
+      "epistemic_status": "observed",
+      "confidence": 0.95,
+      "failure_modes": [
+        "loss spike"
+      ],
+      "interventions": [
+        "gradient clipping"
+      ],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "For the largest model, we observed spikes in the loss roughly 20 times during training, despite the fact that",
+          "page": 11,
+          "section": "5.1 Training Instability",
+          "chunk_id": "P01_C0005"
+        }
+      ]
+    },
+    {
+      "claim_id": "P01_C0005_CLAIM_102",
+      "claim_type": "experimental_result",
+      "statement": "Loss spikes were observed in the largest PaLM model but not in smaller models.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "loss spike"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "were not observed when training the smaller models",
+          "page": 11,
+          "section": "5.1 Training Instability",
+          "chunk_id": "P01_C0005"
+        }
+      ]
+    },
+    {
+      "claim_id": "P01_C0005_CLAIM_103",
+      "claim_type": "experimental_result",
+      "statement": "The authors could not determine a principled strategy to mitigate the loss spikes.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "loss spike"
+      ],
+      "interventions": [],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [
+        "No principled mitigation strategy was identified"
+      ],
+      "evidence": [
+        {
+          "quote": "we were not able to determine a principled strategy to mitigate these spikes.",
+          "page": 11,
+          "section": "5.1 Training Instability",
+          "chunk_id": "P01_C0005"
+        }
+      ]
+    },
+    {
+      "claim_id": "P01_C0005_CLAIM_104",
+      "claim_type": "intervention",
+      "statement": "The authors mitigated loss spikes by restarting from a checkpoint roughly 100 steps before a spike and skipping roughly 200–500 data batches.",
+      "epistemic_status": "observed",
+      "confidence": 0.9,
+      "failure_modes": [
+        "loss spike"
+      ],
+      "interventions": [
+        "checkpoint restart with batch skipping"
+      ],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "checkpoint roughly 100 steps before the spike started, and skipped roughly 200–500 data batches, which cover",
+          "page": 11,
+          "section": "5.1 Training Instability",
+          "chunk_id": "P01_C0005"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0006_CLAIM_001",
+      "claim_type": "background",
+      "statement": "GPT-3 demonstrated that extremely large autoregressive language models can be used for few-shot predictions, where the model is given a natural language task description and optionally a handful of exemplars.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "failure_modes": [],
+      "interventions": [],
+      "metrics": [],
+      "experiment": {},
+      "limitations": [],
+      "evidence": [
+        {
+          "quote": "GPT-3 (Brown et al., 2020) demonstrated that extremely large autoregressive language models (LMs) can be used for few-shot predictions, where the model is only given a natural language task description and (optionally) a handful of exemplars demonstrating how the task should be completed.",
+          "page": 3,
+          "section": "Introduction",
+          "chunk_id": "P01_C0006"
+        }
+      ]
+    }
+  ]
+}

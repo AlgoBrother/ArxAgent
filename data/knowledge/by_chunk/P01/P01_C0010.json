@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0010_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B with 8-shot chain-of-thought prompting and an external calculator achieved 58% accuracy on the GSM8K benchmark, outperforming the prior state-of-the-art of 55% from Cobbe et al. (2021).",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "Using 8-shot chain-of-thought prompting in combination with an external calculator, PaLM 540B achieves a performance of 58%, which outperforms the prior SOTA of 55% from Cobbe et al. (2021) as shown in Table 10.",
+          "page": 21,
+          "section": "6.3.1 Results",
+          "chunk_id": "P01_C0010"
+        }
+      ]
+    }
+  ]
+}

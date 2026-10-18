@@ -8,7 +8,7 @@ import sys
 import scripts.graph.graph_tools as graph_tools
 from pathlib import Path
 
-from sources.arxiv_source import fetch_by_ids, fetch_papers
+from scripts.sources.arxiv_source import fetch_by_ids, fetch_papers
 
 ROOT = Path(__file__).resolve().parents[1]
 CHUNK_DIR = ROOT / "data" / "chunks"

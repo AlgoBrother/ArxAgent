@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0005_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "PaLM 540B outperforms prior state-of-the-art results on 24 of 29 English benchmarks in the 1-shot setting and 28 of 29 tasks in the few-shot setting.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "PaLM 540B outperforms prior SOTA on 24 of the 29 task in the 1-shot setting and 28 of the 29 tasks in the few-shot setting.",
+          "page": 11,
+          "section": "6.1 English NLP tasks",
+          "chunk_id": "P01_C0005"
+        }
+      ]
+    }
+  ]
+}

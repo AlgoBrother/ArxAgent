@@ -1,0 +1,21 @@
+{
+  "paper_id": "P01",
+  "paper_title": "PaLM: Scaling Language Modeling with Pathways",
+  "claims": [
+    {
+      "claim_id": "P01_C0034_CLAIM_001",
+      "claim_type": "experimental_result",
+      "statement": "The training of PaLM-540B resulted in total effective emissions of 271.43 tCO2e, calculated based on 6144 TPU v4 chips for 1200 hours and 3072 TPU v4 chips for 336 hours at a measured system power of 378.5W per chip in a datacenter operating on 89% carbon-free energy.",
+      "epistemic_status": "demonstrated",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "quote": "We trained PaLM-540B on 6144 TPU v4 chips for 1200 hours and 3072 TPU v4 chips for 336 hours including some downtime and repeated steps. Using 378.5W measured system power per TPU v4 chip, this leads to a total eﬀective emissions of 271.43 tCO2e.",
+          "page": 66,
+          "section": "B Compute Usage and Environmental Impact",
+          "chunk_id": "P01_C0034"
+        }
+      ]
+    }
+  ]
+}
