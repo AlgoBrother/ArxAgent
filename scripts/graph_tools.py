@@ -16,6 +16,42 @@ STOPWORDS = {
     "explain", "evidence", "find", "tell", "please",
 }
 
+# Symptom vocabulary: words a user might type -> substrings to match in
+# FailureMode names. Extend these as your graph grows.
+SYMPTOM_GROUPS = [
+    {"triggers": ("spike", "spiked", "spiking", "diverg", "blow up", "blew up",
+                  "instabil", "unstable", "loss jump"),
+     "name_terms": ("spike", "diverg", "instabil", "unstable")},
+    {"triggers": ("hardware", "node fail", "gpu fail", "crash", "preempt"),
+     "name_terms": ("hardware", "node", "crash")},
+    {"triggers": ("fp16", "bf16", "fp8", "precision", "overflow", "underflow"),
+     "name_terms": ("precision", "overflow", "underflow", "fp16", "bf16", "fp8")},
+    {"triggers": ("attention", "logit", "entropy collapse"),
+     "name_terms": ("attention", "logit", "entropy")},
+    {"triggers": ("gradient", "exploding", "vanishing", "grad norm"),
+     "name_terms": ("gradient", "exploding", "vanishing")},
+    {"triggers": ("deep", "depth", "layernorm", "layer norm", "residual"),
+     "name_terms": ("depth", "deep", "normaliz")},
+]
+
+RANKING_NOTE = (
+    "candidate_fixes are ordered by how many distinct papers discuss them, NOT "
+    "by effectiveness. Read each report's statement: some report a fix that "
+    "did not work or only partly worked."
+)
+
+
+def expand_symptom(text: str) -> list[str]:
+    """Map a free-text symptom to FailureMode name substrings (no LLM)."""
+    low = text.lower()
+    match_terms: set[str] = set()
+    for group in SYMPTOM_GROUPS:
+        if any(t in low for t in group["triggers"]):
+            match_terms.update(group["name_terms"])
+    if not match_terms:  # unknown symptom: fall back to the user's own words
+        match_terms = {w for w in terms(text) if len(w) >= 4}
+    return sorted(match_terms)
+
 
 def terms(text: str) -> set[str]:
     return {
@@ -27,6 +63,20 @@ def terms(text: str) -> set[str]:
 
 class GraphTools:
     """Fixed-query, parameterized, read-only operations on FalkorDB."""
+
+    _DIAGNOSE_CYPHER = """
+        MATCH (p:Paper)-[:REPORTS]->(c:Claim)-[:DESCRIBES_FAILURE]->(f:FailureMode)
+        WHERE any(t IN $terms WHERE toLower(f.name) CONTAINS t)
+        OPTIONAL MATCH (c)-[:TESTS_OR_PROPOSES]->(i:Intervention)
+        OPTIONAL MATCH (c)-[:SUPPORTED_BY]->(e:Evidence)
+        RETURN p.paper_id, p.title, c.claim_id, c.text, c.claim_type,
+               c.epistemic_status, c.source_scope, c.source_file, f.name,
+               collect(DISTINCT i.name) AS interventions,
+               collect(DISTINCT {quote: e.quote, page: e.page,
+                                 section: e.section, chunk_id: e.chunk_id}) AS evidence
+    """
+
+
 
     def __init__(self, graph_name: str = DEFAULT_GRAPH):
         db = FalkorDB(
@@ -40,6 +90,70 @@ class GraphTools:
         # All callers use fixed Cypher templates; user text is passed as parameters.
         result = self.graph.query(cypher, params or {})
         return result.result_set
+
+    def diagnose(self, symptom: str, limit: int = 5) -> dict:
+        """Symptom -> matching failure claims -> fixes grouped across papers."""
+        if not isinstance(symptom, str) or not symptom.strip():
+            raise ValueError("symptom must be a non-empty string")
+        if not 1 <= limit <= 8:
+            raise ValueError("limit must be between 1 and 8")
+
+        match_terms = expand_symptom(symptom)
+        rows = self._query(self._DIAGNOSE_CYPHER, {"terms": match_terms}) if match_terms else []
+
+        claims: dict[str, dict] = {}
+        for (paper_id, title, claim_id, claim_text, ctype, status, scope,
+             source_file, failure, interventions, evidence) in rows:
+            rec = claims.get(claim_id)
+            if rec is None:
+                evidence = [e for e in (evidence or [])
+                            if isinstance(e, dict) and e.get("quote")]
+                first = evidence[0] if evidence else {}
+                provenance = ("abstract_only" if scope == "abstract"
+                              else "hand_curated" if "_curated" in str(source_file or "")
+                              else "llm_extracted")
+                rec = claims[claim_id] = {
+                    "claim_id": claim_id, "paper_id": paper_id,
+                    "paper_title": title,
+                    "statement": (claim_text or "")[:320],
+                    "claim_type": ctype, "epistemic_status": status,
+                    "provenance": provenance,
+                    "interventions": [x for x in (interventions or []) if x],
+                    "failure_modes": [],
+                    "quote": (first.get("quote") or "")[:220],
+                    "page": first.get("page"), "section": first.get("section"),
+                }
+            if failure and failure not in rec["failure_modes"]:
+                rec["failure_modes"].append(failure)
+
+        # Claims that name the symptom but no fix: the symptom as observed.
+        observations = [c for c in claims.values() if not c["interventions"]]
+
+        fixes: dict[str, dict] = {}
+        for c in claims.values():
+            for name in c["interventions"]:
+                fix = fixes.setdefault(name, {"fix": name, "papers": set(), "reports": []})
+                fix["papers"].add(c["paper_id"])
+                fix["reports"].append({k: c[k] for k in (
+                    "paper_id", "claim_id", "statement", "epistemic_status",
+                    "provenance", "quote", "page")})
+        ranked = sorted(fixes.values(),
+                        key=lambda f: (-len(f["papers"]), -len(f["reports"]), f["fix"]))[:limit]
+        for f in ranked:
+            f["papers"] = sorted(f["papers"])
+            f["paper_count"] = len(f["papers"])
+
+        return {
+            "symptom": symptom.strip(),
+            "match_terms": match_terms,
+            "matched_failure_modes": sorted(
+                {fm for c in claims.values() for fm in c["failure_modes"]}),
+            "papers_matched": sorted({c["paper_id"] for c in claims.values()}),
+            "claims_matched": len(claims),
+            "symptom_observations": observations[:limit],
+            "candidate_fixes": ranked,
+            "ranking_note": RANKING_NOTE,
+        }
 
     def stats(self) -> dict[str, int]:
         rows = self._query("""
