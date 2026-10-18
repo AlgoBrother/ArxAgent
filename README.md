@@ -6,11 +6,19 @@ ArxAgent is a graph-grounded AI research agent that uses **FalkorDB as its resea
 
 Instead of treating every question as an isolated LLM prompt, ArxAgent uses a structured knowledge graph to inform its investigation. The graph determines which claims and evidence are available to the agent, helping it distinguish documented findings from unanswered research questions.
 
+
 ## The Problem
 
 Research agents can generate convincing explanations without making it clear where their conclusions come from. Relevant findings become difficult to track across papers, evidence can be disconnected from claims, and follow-up investigations may lose their context.
 
 ArxAgent addresses this problem by combining graph-based knowledge retrieval, evidence-grounded answering, and session memory.
+
+
+## SETUP
+To set up this project, please follow through the link below or navigate to SETUP.md.
+
+[SETUP](https://github.com/AlgoBrother/ArxAgent/blob/main/SETUP.md)
+
 
 ## How ArxAgent Works
 
